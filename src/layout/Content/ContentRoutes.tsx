@@ -1,8 +1,7 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import contents from '../../routes/contentRoutes';
 
-const PAGE_404 = lazy(() => import('../../pages/presentation/auth/Page404'));
 const ContentRoutes = () => {
 	return (
 		<Routes>
@@ -10,7 +9,7 @@ const ContentRoutes = () => {
 				// eslint-disable-next-line react/jsx-props-no-spreading
 				return <Route key={page.path} {...page} />;
 			})}
-			<Route path='*' element={<PAGE_404 />} />
+			<Route path='*' element={<div>Oops! Wrong route</div>} />
 		</Routes>
 	);
 };

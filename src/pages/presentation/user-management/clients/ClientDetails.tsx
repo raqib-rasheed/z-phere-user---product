@@ -10,7 +10,7 @@ import SubHeader, {
 } from '../../../../layout/SubHeader/SubHeader';
 import Breadcrumb from '../../../../components/bootstrap/Breadcrumb';
 import Button from '../../../../components/bootstrap/Button';
-import { TABS } from '../../dashboard/common/helper';
+// import { TABS } from '../../dashboard/common/helper';
 import { useFormik } from 'formik';
 import showNotification from '../../../../components/extras/showNotification';
 import useSubHeaderBreadCrumpList from '../../../../hooks/useSubHeaderBreadCrumpList';
@@ -18,7 +18,7 @@ import TableWidget from '../../../../widgets/Table';
 
 const Leave = () => {
 	const breadcrumbLists = useSubHeaderBreadCrumpList();
-	const [activeTab, setActiveTab] = useState(TABS.BUSINESS_SETTING);
+	const [activeTab, setActiveTab] = useState('');
 	const formik = useFormik({
 		initialValues: {
 			firstName: 'John',
@@ -87,7 +87,7 @@ const Leave = () => {
 						isLight
 						icon='Add'
 						onClick={() => {
-							setActiveTab(TABS.BUSINESS_SETTING);
+							setActiveTab('');
 							formik.setValues({
 								firstName: '',
 								lastName: '',
@@ -107,7 +107,7 @@ const Leave = () => {
 						}}>
 						Add New
 					</Button>
-					{TABS.BUSINESS_SETTING === activeTab && (
+					{'' === activeTab && (
 						<Button color='info' isOutline icon='Save' onClick={formik.handleSubmit}>
 							Save
 						</Button>
